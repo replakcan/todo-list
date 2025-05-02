@@ -1,5 +1,6 @@
 import { readDataFromLocalStorage } from '../lib/readDataFromLocalStorage'
 import { writeDataInLocalStorage } from '../lib/writeDataInLocalStorage'
+import { projectArr } from '../project-array'
 import { todoArr } from '../todo-array'
 import TodoCard from './TodoCard'
 
@@ -23,10 +24,16 @@ function TodoForm() {
     writeDataInLocalStorage('todos', todoArr)
     const todos = readDataFromLocalStorage('todos')
 
-    document.querySelector('.todo-container').innerHTML = ''
+    const todoContainer = document.querySelector('.todo-container')
+    todoContainer.innerHTML = ''
+
+    const heading = document.createElement('h1')
+    heading.id = 'project-heading'
+    heading.textContent = 'All Todos'
+    todoContainer.appendChild(heading)
 
     todos.map((todo) => TodoCard(todo))
-    const dialog = document.querySelector('dialog')
+    const dialog = document.querySelector('.todo-dialog')
 
     dialog.close()
     todoForm.reset()
@@ -97,6 +104,25 @@ function TodoForm() {
   option1.textContent = 'normal'
   option2.textContent = 'acil'
 
+  const projectDiv = document.createElement('div')
+  const projectLabel = document.createElement('label')
+  const projectSelect = document.createElement('select')
+
+  projectLabel.textContent = 'project: '
+  projectLabel.setAttribute('for', 'project')
+
+  projectSelect.setAttribute('name', 'project')
+
+  projectSelect.id = 'project'
+
+  projectArr.map((project) => {
+    const projectOption = document.createElement('option')
+    projectOption.value = project.project
+    projectOption.text = project.project
+
+    projectSelect.appendChild(projectOption)
+  })
+
   const notesDiv = document.createElement('div')
   const notesLabel = document.createElement('label')
   const notesTextarea = document.createElement('textarea')
@@ -128,6 +154,7 @@ function TodoForm() {
   descriptionInput.setAttribute('required', '')
   dueDateInput.setAttribute('required', '')
   prioritySelect.setAttribute('required', '')
+  projectSelect.setAttribute('required', '')
 
   titleDiv.appendChild(titleLabel)
   titleDiv.appendChild(titleInput)
@@ -144,6 +171,9 @@ function TodoForm() {
   prioritySelect.appendChild(option1)
   prioritySelect.appendChild(option2)
 
+  projectDiv.appendChild(projectLabel)
+  projectDiv.appendChild(projectSelect)
+
   notesDiv.appendChild(notesLabel)
   notesDiv.appendChild(notesTextarea)
 
@@ -156,6 +186,7 @@ function TodoForm() {
   fieldsetRequired.appendChild(descriptionDiv)
   fieldsetRequired.appendChild(dueDateDiv)
   fieldsetRequired.appendChild(priorityDiv)
+  fieldsetRequired.appendChild(projectDiv)
 
   fieldsetOptional.appendChild(legendOptional)
 

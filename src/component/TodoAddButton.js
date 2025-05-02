@@ -5,7 +5,7 @@ function TodoAddButton() {
   btn.textContent = 'Add Todo'
 
   btn.addEventListener('click', () => {
-    const dialog = document.querySelector('dialog')
+    const dialog = document.querySelector('.todo-dialog')
     dialog.showModal()
   })
 
