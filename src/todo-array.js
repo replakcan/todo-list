@@ -1,3 +1,3 @@
 import { readDataFromLocalStorage } from './lib/readDataFromLocalStorage'
 
-export const todoArr = readDataFromLocalStorage('todos') || new Array()
+export const todoArr = readDataFromLocalStorage('todos') || []
