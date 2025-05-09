@@ -105,7 +105,9 @@ dialog {
 }
 
 #project-heading span {
-  color: red;
+  color: black;
+  text-decoration: underline;
+  font-style: italic;
 }
 
 .todo-remove-btn {
