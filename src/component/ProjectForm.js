@@ -1,14 +1,11 @@
 import { readDataFromLocalStorage } from '../lib/readDataFromLocalStorage'
 import { writeDataInLocalStorage } from '../lib/writeDataInLocalStorage'
-import { projectArr } from '../project-array'
 import ProjectCard from './ProjectCard'
 
-function ProjectForm() {
+function ProjectForm(projectList) {
   const projectForm = document.createElement('form')
 
   projectForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-
     const formData = new FormData(projectForm)
 
     const data = {}
@@ -17,9 +14,9 @@ function ProjectForm() {
       data[key] = value
     })
 
-    projectArr.push(data)
+    projectList.push(data)
 
-    writeDataInLocalStorage('projects', projectArr)
+    writeDataInLocalStorage('projects', projectList)
     const projects = readDataFromLocalStorage('projects')
 
     document.querySelector('.project-container').innerHTML = ''

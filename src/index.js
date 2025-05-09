@@ -18,11 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 ProjectAddButton()
-ProjectDialog(ProjectForm())
+ProjectDialog(ProjectForm(projectArr))
 
-TodoDialog(TodoForm())
-
-TodoAddButton()
-
+TodoAddButton(projectArr)
+TodoDialog(TodoForm(projectArr, todoArr))
 
 ProjectContainer()

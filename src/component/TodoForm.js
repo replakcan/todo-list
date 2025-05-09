@@ -1,10 +1,8 @@
 import { readDataFromLocalStorage } from '../lib/readDataFromLocalStorage'
 import { writeDataInLocalStorage } from '../lib/writeDataInLocalStorage'
-import { projectArr } from '../project-array'
-import { todoArr } from '../todo-array'
 import TodoCard from './TodoCard'
 
-function TodoForm() {
+function TodoForm(projectList, todoList) {
   const todoForm = document.createElement('form')
 
   todoForm.id = 'todo_form'
@@ -19,9 +17,9 @@ function TodoForm() {
       data[key] = value
     })
 
-    todoArr.push(data)
+    todoList.push(data)
 
-    writeDataInLocalStorage('todos', todoArr)
+    writeDataInLocalStorage('todos', todoList)
     const todos = readDataFromLocalStorage('todos')
 
     const todoContainer = document.querySelector('.todo-container')
@@ -96,13 +94,13 @@ function TodoForm() {
   prioritySelect.setAttribute('name', 'priority')
 
   prioritySelect.id = 'priority'
-  option.value = 'not'
-  option1.value = 'normal'
-  option2.value = 'acil'
+  option.value = 'P0'
+  option1.value = 'P1'
+  option2.value = 'P2'
 
-  option.textContent = 'not'
-  option1.textContent = 'normal'
-  option2.textContent = 'acil'
+  option.textContent = 'P0'
+  option1.textContent = 'P1'
+  option2.textContent = 'P2'
 
   const projectDiv = document.createElement('div')
   const projectLabel = document.createElement('label')
@@ -115,7 +113,7 @@ function TodoForm() {
 
   projectSelect.id = 'project'
 
-  projectArr.map((project) => {
+  projectList.map((project) => {
     const projectOption = document.createElement('option')
     projectOption.value = project.project
     projectOption.text = project.project
