@@ -122,3 +122,10 @@ textarea {
   top: 1rem;
   right: 1rem;
 }
+
+div[class*='card']:hover,
+button:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
