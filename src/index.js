@@ -24,3 +24,5 @@ TodoAddButton(projectArr)
 TodoDialog(TodoForm(projectArr, todoArr))
 
 ProjectContainer()
+
+console.log('test')
