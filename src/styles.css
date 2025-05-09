@@ -1,3 +1,10 @@
+:root {
+  --sidebarClr: #474a6c;
+  --todoContainerClr: #e0e2d2;
+  --projectCardClr: #b4c540;
+  --todoCardClr: #3686c9;
+}
+
 body {
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -11,7 +18,7 @@ body > * {
 
 .sidebar {
   grid-area: 1 / 1 / -1 / 2;
-  background-color: rgb(110, 72, 72);
+  background-color: var(--sidebarClr);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -19,7 +26,7 @@ body > * {
 
 .todo-container {
   grid-area: 1 / 2 / -1 / -1;
-  background-color: rgb(28, 28, 90);
+  background-color: var(--todoContainerClr);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -56,7 +63,7 @@ dialog {
 .todo-card {
   position: relative;
   padding: 1rem;
-  background-color: green;
+  background-color: var(--todoCardClr);
   border-radius: 1rem;
   color: black;
   font-style: italic;
@@ -71,7 +78,7 @@ dialog {
 .sidebar button {
   border-radius: 0.5rem;
   font-weight: bold;
-  color: red;
+  color: rgb(153, 37, 37);
   background-color: bisque;
 }
 
@@ -87,14 +94,14 @@ dialog {
   border-radius: 0.5rem;
   padding: 1rem;
   color: black;
-  background-color: violet;
+  background-color: var(--projectCardClr);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 #project-heading {
-  color: white;
+  color: rgb(153, 37, 37);
 }
 
 #project-heading span {
