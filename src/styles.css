@@ -50,6 +50,7 @@ fieldset > div {
 }
 
 dialog {
+  background-color: yellowgreen;
   position: relative;
   top: 50%;
   left: 50%;
@@ -59,7 +60,16 @@ dialog {
   transform: translateX(-50%) translateY(-50%);
 }
 
-.dialog-close-btn {
+input,
+select,
+textarea {
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  background-color: lightcoral;
+}
+
+.todo-dialog .dialog-close-btn {
   position: absolute;
   top: 0.8rem;
   right: 0.4rem;
@@ -99,9 +109,6 @@ dialog {
   padding: 1rem;
   color: black;
   background-color: var(--projectCardClr);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 #project-heading {
